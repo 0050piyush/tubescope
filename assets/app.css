@@ -12,7 +12,7 @@ html{color-scheme:dark}
 html[data-theme="light"]{color-scheme:light}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
 /* header */
@@ -85,7 +85,7 @@ a.quota:hover{border-color:var(--acc)}
 .chanline .sb{font-size:12.5px;color:var(--mut)}
 .pub{font-size:13px;color:var(--dim);margin-top:8px}
 /* score */
-.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:14px 0}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px;margin:14px 0}
 .ringwrap{display:flex;gap:18px;align-items:center}
 .ring{position:relative;width:110px;height:110px;flex:none}
 .ring svg{transform:rotate(-90deg)}
@@ -128,7 +128,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
 .num{font-variant-numeric:tabular-nums;text-align:right}
 /* tags */
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.tag{background:var(--card2);border:1px solid var(--line);padding:6px 12px;border-radius:99px;font-size:13px;color:var(--mut)}
+.tag{background:var(--card2);border:1px solid var(--line);padding:6px 12px;border-radius:99px;font-size:13px;color:var(--mut);overflow-wrap:anywhere}
 .tag.hot{border-color:rgba(255,59,48,.4);color:#ffb4ab}
 /* forms */
 .field{margin:14px 0}
@@ -145,7 +145,20 @@ select.in option{background:#111}
 .gate p{color:var(--mut);font-size:13.5px}
 /* misc */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:760px){.grid2{grid-template-columns:1fr}.barrow{grid-template-columns:110px 1fr 60px}.top-in{gap:12px;flex-wrap:wrap}nav.main{flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding-bottom:4px}nav.main a{white-space:nowrap;padding:6px 10px;font-size:13px}.quota{display:none}}
+@media(max-width:760px){
+  .grid2{grid-template-columns:1fr}
+  .barrow{grid-template-columns:110px 1fr 60px}
+  .top-in{gap:10px 12px;flex-wrap:wrap}
+  .brand{flex:1}
+  nav.main{order:3;flex:1 1 100%;max-width:100%;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+  nav.main a{white-space:nowrap;padding:7px 10px;font-size:13px}
+  .quota{display:none}
+  .iconbtn{order:2;margin-left:auto;width:38px;height:38px}
+  .inrow{flex-direction:column;align-items:stretch}
+  .inrow>*{min-width:0 !important}
+  .hero{padding:44px 0 26px}
+  .panels{grid-template-columns:1fr}
+}
 /* ideas */
 .ideacard{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:10px 0;align-items:flex-start}
 .ideacard .in{width:30px;height:30px;flex:none;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
@@ -162,7 +175,7 @@ select.in option{background:#111}
 @keyframes sp{to{transform:rotate(360deg)}}
 .err{background:rgba(255,59,48,.08);border:1px solid rgba(255,59,48,.35);border-radius:var(--r);padding:16px 18px;margin:16px 0;font-size:14px}
 .err b{color:#ff8a80}
-.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#1a1a20;border:1px solid var(--line);padding:12px 20px;border-radius:12px;font-size:14px;z-index:99;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);max-width:calc(100vw - 44px);text-align:center;background:#1a1a20;border:1px solid var(--line);padding:12px 20px;border-radius:12px;font-size:14px;z-index:99;box-shadow:0 10px 40px rgba(0,0,0,.6)}
 footer{border-top:1px solid var(--line);margin-top:50px;padding:28px 0 40px;color:var(--dim);font-size:13px}
 footer .wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
 .kbd{background:var(--card2);border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:12.5px;color:var(--mut)}

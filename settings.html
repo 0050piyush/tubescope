@@ -6,7 +6,7 @@
 <title>Settings — TubeScope</title>
 <meta name="description" content="Connect your free YouTube Data API v3 key to TubeScope.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff3b30'/%3E%3Cpath d='M26 20l18 12-18 12z' fill='white'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/app.css?v=4">
 <script>try{if((localStorage.getItem("tubescope_theme")||"dark")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 </head>
 <body>
@@ -65,6 +65,15 @@
 </div>
 
 <div class="card mb">
+<h3>Appearance</h3>
+<div class="inrow" style="flex-direction:row">
+<button class="btn ghost sm" id="themeDark">Dark mode</button>
+<button class="btn ghost sm" id="themeLight">Light mode</button>
+</div>
+<p class="note">Same as the sun/moon button in the header — your choice is saved in this browser.</p>
+</div>
+
+<div class="card mb">
 <h3>AI for Daily Ideas (optional)</h3>
 <p class="small muted">Daily Ideas works out of the box with a free, no-key AI. For better quality, point it at your own OpenAI-compatible endpoint — e.g. a free <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" style="text-decoration:underline">Gemini API key</a> with endpoint <code class="inline">https://generativelanguage.googleapis.com/v1beta/openai</code>.</p>
 <div class="field"><label>API endpoint (OpenAI-compatible)</label><input class="in full" id="llm_ep" placeholder="https://…/v1  (leave empty for free built-in AI)" autocomplete="off" spellcheck="false"></div>
@@ -88,7 +97,7 @@
 </div>
 </div></main>
 <footer><div class="wrap"><span>TubeScope — free &amp; open source. Estimates are heuristic.</span><span><a href="https://github.com/0050piyush/tubescope" style="text-decoration:underline">GitHub</a></span></div></footer>
-<script src="assets/app.js"></script>
-<script src="assets/settings.js"></script>
+<script src="assets/app.js?v=4"></script>
+<script src="assets/settings.js?v=4"></script>
 </body>
 </html>

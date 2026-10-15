@@ -70,3 +70,7 @@ function paintQuotaDash() {
 document.getElementById('qResetBtn').addEventListener('click', () => { TS.resetQuota(); paintQuotaDash(); paint(); TS.toast('Quota counter reset.'); });
 paintQuotaDash();
 setInterval(paintQuotaDash, 60000);
+
+/* appearance backup toggle */
+document.getElementById('themeDark').addEventListener('click', () => { TS.setTheme('dark'); TS.toast('Dark mode on.'); });
+document.getElementById('themeLight').addEventListener('click', () => { TS.setTheme('light'); TS.toast('Light mode on.'); });
