@@ -7,6 +7,7 @@
 <meta name="description" content="Connect your free YouTube Data API v3 key to TubeScope.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff3b30'/%3E%3Cpath d='M26 20l18 12-18 12z' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/app.css">
+<script>try{if((localStorage.getItem("tubescope_theme")||"dark")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 </head>
 <body>
 <header class="top"><div class="top-in">
@@ -14,7 +15,8 @@
 <nav class="main">
 <a data-p="video" href="video.html">Video</a><a data-p="channel" href="channel.html">Channel</a><a data-p="ideas" href="ideas.html">Ideas</a><a data-p="keywords" href="keywords.html">Keywords</a><a data-p="trends" href="trends.html">Trends</a><a data-p="tracker" href="tracker.html">Tracker</a><a data-p="mychannel" href="mychannel.html">My Channel</a><a data-p="trending" href="trending.html">Trending</a><a data-p="compare" href="compare.html">Compare</a><a data-p="settings" href="settings.html">Settings</a>
 </nav>
-<div class="quota" id="quota"></div>
+<button class="iconbtn" id="themeBtn" aria-label="Toggle light and dark mode" title="Toggle light / dark mode"></button>
+<a class="quota" id="quota" href="settings.html" title="Daily API quota — click for details"></a>
 </div></header>
 <main><div class="wrap">
 <div class="sec">
@@ -33,6 +35,33 @@
 </div>
 <div class="small mt" id="keyStatus"></div>
 <div class="small dim mt">Today's usage: <b id="qUse" class="muted"></b> units of the free 10,000/day quota.</div>
+</div>
+
+<div class="card mb">
+<h3>Daily API quota</h3>
+<div class="qbar"><div class="qfill" id="qFill"></div></div>
+<div class="inrow" style="justify-content:space-between;align-items:baseline">
+<span class="small"><b id="qUnits" class="muted"></b> <span class="dim">of 10,000 units used today</span></span>
+<span class="small dim" id="qReset"></span>
+</div>
+<div class="small dim" id="qCalls"></div>
+<div class="tblwrap mt"><table class="tbl">
+<tr><th>Tool</th><th class="num">Cost per use</th></tr>
+<tr><td>Video analysis</td><td class="num">~1 unit</td></tr>
+<tr><td>Channel audit</td><td class="num">~4 units</td></tr>
+<tr><td>AI Daily Ideas</td><td class="num">~4 units</td></tr>
+<tr><td>Trending explorer</td><td class="num">~2 units</td></tr>
+<tr><td>Competitor compare</td><td class="num">~8 units</td></tr>
+<tr><td>Trend radar scan</td><td class="num">~101 units</td></tr>
+<tr><td>Tracker refresh</td><td class="num">~2 units / channel</td></tr>
+<tr><td>Keyword idea list</td><td class="num">free*</td></tr>
+<tr><td>Keyword scoring</td><td class="num">~100 units / keyword</td></tr>
+<tr><td>Captions check</td><td class="num">50 units</td></tr>
+</table></div>
+<div class="inrow mt">
+<button class="btn ghost sm" id="qResetBtn">Reset counter</button>
+</div>
+<p class="note">*Keyword ideas use YouTube's free autocomplete. Tracked from this browser for the currently saved key — your key's real quota is shared across every app using it. Quota resets at midnight Pacific Time. If YouTube reports <b>quotaExceeded</b>, wait for reset or switch keys.</p>
 </div>
 
 <div class="card mb">

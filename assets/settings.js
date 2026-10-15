@@ -52,3 +52,21 @@ document.getElementById('llm_save').addEventListener('click', () => {
   paintLlm(); TS.toast('AI settings saved.');
 });
 paintLlm();
+
+/* quota dashboard */
+function msToMidnightPT() {
+  const pt = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+  return 24 * 3600e3 - (pt.getHours() * 3600e3 + pt.getMinutes() * 60e3 + pt.getSeconds() * 1e3 + pt.getMilliseconds());
+}
+function paintQuotaDash() {
+  const q = TS.quota();
+  const pct = Math.min(100, q.units / 10000 * 100);
+  document.getElementById('qFill').style.width = pct + '%';
+  document.getElementById('qUnits').textContent = q.units.toLocaleString();
+  document.getElementById('qCalls').textContent = q.calls + ' API calls today from this browser.';
+  const ms = msToMidnightPT(), h = Math.floor(ms / 3600e3), m = Math.floor(ms % 3600e3 / 60e3);
+  document.getElementById('qReset').textContent = 'Resets in ' + h + 'h ' + m + 'm (midnight PT)';
+}
+document.getElementById('qResetBtn').addEventListener('click', () => { TS.resetQuota(); paintQuotaDash(); paint(); TS.toast('Quota counter reset.'); });
+paintQuotaDash();
+setInterval(paintQuotaDash, 60000);

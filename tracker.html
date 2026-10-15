@@ -7,6 +7,7 @@
 <meta name="description" content="Track competitor channels over time: growth history, velocity alerts, new uploads.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff3b30'/%3E%3Cpath d='M26 20l18 12-18 12z' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/app.css">
+<script>try{if((localStorage.getItem("tubescope_theme")||"dark")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 </head>
 <body>
 <header class="top"><div class="top-in">
@@ -14,7 +15,8 @@
 <nav class="main">
 <a data-p="video" href="video.html">Video</a><a data-p="channel" href="channel.html">Channel</a><a data-p="ideas" href="ideas.html">Ideas</a><a data-p="keywords" href="keywords.html">Keywords</a><a data-p="trends" href="trends.html">Trends</a><a data-p="tracker" href="tracker.html">Tracker</a><a data-p="mychannel" href="mychannel.html">My Channel</a><a data-p="trending" href="trending.html">Trending</a><a data-p="compare" href="compare.html">Compare</a><a data-p="settings" href="settings.html">Settings</a>
 </nav>
-<div class="quota" id="quota"></div>
+<button class="iconbtn" id="themeBtn" aria-label="Toggle light and dark mode" title="Toggle light / dark mode"></button>
+<a class="quota" id="quota" href="settings.html" title="Daily API quota — click for details"></a>
 </div></header>
 <main><div class="wrap">
 <div class="sec">

@@ -6,18 +6,28 @@ const TS = (() => {
   const LS_KEY = 'tubescope_yt_key', LS_Q = 'tubescope_quota_v1';
   const todayStr = () => new Date().toISOString().slice(0, 10);
 
-  /* ---------- API key + quota ---------- */
+  /* ---------- API key + quota (tracked per key, resets daily) ---------- */
   const getKey = () => (localStorage.getItem(LS_KEY) || '').trim();
   const setKey = k => localStorage.setItem(LS_KEY, (k || '').trim());
   const hasKey = () => getKey().length > 10;
 
+  function keyHash() {
+    const k = getKey(); let h = 0;
+    for (let i = 0; i < k.length; i++) h = (h * 31 + k.charCodeAt(i)) >>> 0;
+    return h.toString(36);
+  }
+  const qStoreKey = () => LS_Q + '_' + (hasKey() ? keyHash() : 'nokey');
   function quota() {
-    try { const q = JSON.parse(localStorage.getItem(LS_Q) || '{}'); if (q.d === todayStr()) return q; } catch (e) {}
+    try { const q = JSON.parse(localStorage.getItem(qStoreKey()) || '{}'); if (q.d === todayStr()) return q; } catch (e) {}
     return { d: todayStr(), units: 0, calls: 0 };
   }
   function addQuota(n) {
     const q = quota(); q.units += n; q.calls++;
-    try { localStorage.setItem(LS_Q, JSON.stringify(q)); } catch (e) {}
+    try { localStorage.setItem(qStoreKey(), JSON.stringify(q)); } catch (e) {}
+    renderQuota();
+  }
+  function resetQuota() {
+    try { localStorage.removeItem(qStoreKey()); } catch (e) {}
     renderQuota();
   }
   function renderQuota() {
@@ -350,7 +360,7 @@ const TS = (() => {
   function ring(score, label) {
     const c = score >= 80 ? '#22c55e' : score >= 50 ? '#f59e0b' : '#ff3b30';
     const r = 46, circ = 2 * Math.PI * r, off = circ * (1 - score / 100);
-    return '<div class="ring"><svg width="110" height="110"><circle cx="55" cy="55" r="' + r + '" fill="none" stroke="#1f1f26" stroke-width="10"/>' +
+    return '<div class="ring"><svg width="110" height="110"><circle cx="55" cy="55" r="' + r + '" fill="none" style="stroke:var(--track)" stroke-width="10"/>' +
       '<circle cx="55" cy="55" r="' + r + '" fill="none" stroke="' + c + '" stroke-width="10" stroke-linecap="round" stroke-dasharray="' + circ.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '"/>' +
       '</svg><div class="num"><b>' + score + '</b><span>' + esc(label || 'score') + '</span></div></div>';
   }
@@ -366,12 +376,27 @@ const TS = (() => {
   }
   function initNav(active) {
     document.querySelectorAll('nav.main a').forEach(a => { if (a.dataset.p === active) a.classList.add('on'); });
+    initTheme();
     renderQuota();
+  }
+  const SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+  const MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+  function isLight() { return document.documentElement.getAttribute('data-theme') === 'light'; }
+  function initTheme() {
+    const btn = document.getElementById('themeBtn');
+    if (!btn) return;
+    const paint = () => { btn.innerHTML = isLight() ? MOON : SUN; };
+    btn.addEventListener('click', () => {
+      if (isLight()) { document.documentElement.removeAttribute('data-theme'); try { localStorage.setItem('tubescope_theme', 'dark'); } catch (e) {} }
+      else { document.documentElement.setAttribute('data-theme', 'light'); try { localStorage.setItem('tubescope_theme', 'light'); } catch (e) {} }
+      paint();
+    });
+    paint();
   }
   function qs(name) { return new URLSearchParams(location.search).get(name); }
 
   return {
-    getKey, setKey, hasKey, quota, api, apiErrorHtml, gateHtml,
+    getKey, setKey, hasKey, quota, resetQuota, api, apiErrorHtml, gateHtml,
     parseVideoId, parseChannelInput, resolveChannelId, getVideo, getChannel,
     getUploadsPlaylistItems, getVideosByIds,
     fmtNum, fmtInt, fmtMoney, esc, timeAgo, fmtDate, parseDuration, fmtDuration, isShort,
