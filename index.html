@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TubeScope — Free vidIQ Alternative: YouTube Analytics, SEO & Earnings Estimates</title>
+<meta name="description" content="Free open-source YouTube analytics suite: video SEO scorecard, channel audit, monetization check, earnings estimates, keyword research, trending and competitor comparison.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff3b30'/%3E%3Cpath d='M26 20l18 12-18 12z' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<header class="top"><div class="top-in">
+<a class="brand" href="index.html"><span class="logo">TS</span>TubeScope</a>
+<nav class="main">
+<a data-p="video" href="video.html">Video</a><a data-p="channel" href="channel.html">Channel</a><a data-p="keywords" href="keywords.html">Keywords</a><a data-p="trending" href="trending.html">Trending</a><a data-p="compare" href="compare.html">Compare</a><a data-p="settings" href="settings.html">Settings</a>
+</nav>
+<div class="quota" id="quota"></div>
+</div></header>
+
+<main>
+<div class="wrap">
+<div class="hero">
+<h1>YouTube intelligence,<br><span class="grad">without the $49/month.</span></h1>
+<p>TubeScope is a free, open-source vidIQ alternative. Analyze any video or channel: SEO score, monetization status, estimated earnings, keyword opportunities, trending content and competitor benchmarks.</p>
+<form class="searchbar" id="uniForm">
+<input id="uniInput" placeholder="Paste a YouTube video or channel URL…" autocomplete="off" spellcheck="false">
+<button class="btn" type="submit">Analyze</button>
+</form>
+<div class="hint">Try a video link like <code>youtube.com/watch?v=…</code> or a channel like <code>@MrBeast</code></div>
+<div id="keyNudge" class="mt"></div>
+</div>
+
+<div class="sec">
+<h2>Everything in one toolbox</h2>
+<p class="sub">The paid-plan features, free forever. Your data stays in your browser.</p>
+<div class="cards">
+<a class="card feat" href="video.html"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/></svg></div><h3>Video Scorecard</h3><p>SEO score, engagement health, tags, estimated video revenue and a fix-list for every upload.</p></a>
+<a class="card feat" href="channel.html"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><h3>Channel Audit</h3><p>Monetization likelihood, estimated monthly earnings, upload consistency, top videos and content ideas.</p></a>
+<a class="card feat" href="keywords.html"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><h3>Keyword Research</h3><p>Autocomplete-powered ideas with competition data and an opportunity score for each keyword.</p></a>
+<a class="card feat" href="trending.html"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Trending Explorer</h3><p>What's blowing up right now, by country and category — find formats to adapt.</p></a>
+<a class="card feat" href="compare.html"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M8 3v18M16 3v18M3 8h5M3 16h5M16 8h5M16 16h5"/></svg></div><h3>Competitor Compare</h3><p>Two channels head-to-head: growth signals, earnings estimates, consistency and health scores.</p></a>
+<a class="card feat" href="settings.html"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 01-.1 1.2l2 1.6-2 3.4-2.4-1a7 7 0 01-2 1.2L14 20h-4l-.4-2.6a7 7 0 01-2-1.2l-2.4 1-2-3.4 2-1.6A7 7 0 015 12a7 7 0 01.1-1.2l-2-1.6 2-3.4 2.4 1a7 7 0 012-1.2L10 4h4l.4 2.6a7 7 0 012 1.2l2.4-1 2 3.4-2 1.6c.06.4.1.8.1 1.2z"/></svg></div><h3>Free API Setup</h3><p>Connect your own free YouTube Data API key in 2 minutes. No account, no tracking, no paywall.</p></a>
+</div>
+</div>
+
+<div class="sec">
+<h2>How it works</h2>
+<p class="sub">No servers, no sign-ups. TubeScope runs 100% in your browser.</p>
+<div class="steps">
+<div class="step"><p><b>Get a free YouTube Data API v3 key</b> from Google Cloud Console (10,000 free units/day — a video analysis costs ~1 unit). Guided setup in Settings.</p></div>
+<div class="step"><p><b>Paste any video or channel URL.</b> TubeScope fetches public stats through the official API — nothing scraped, nothing against ToS.</p></div>
+<div class="step"><p><b>Get vidIQ-style insights.</b> The open <span class="kbd">TubeScope Estimates Engine</span> scores SEO, estimates monetization likelihood and ad revenue from niche CPM models, all computed locally.</p></div>
+</div>
+</div>
+
+<div class="sec">
+<h2>TubeScope vs paid tools</h2>
+<p class="sub">Feature parity with paid plans of tools like vidIQ — at $0.</p>
+<div class="tblwrap"><table class="tbl">
+<tr><th>Feature</th><th>TubeScope</th><th>Typical paid tool</th></tr>
+<tr><td>Video SEO scorecard</td><td><span class="badge g">Free</span></td><td>Paid plan</td></tr>
+<tr><td>Channel monetization check</td><td><span class="badge g">Free</span></td><td>Paid plan</td></tr>
+<tr><td>Earnings estimates (video + channel)</td><td><span class="badge g">Free</span></td><td>Paid plan</td></tr>
+<tr><td>Keyword research + competition</td><td><span class="badge g">Free</span></td><td>Paid plan</td></tr>
+<tr><td>Trending video explorer</td><td><span class="badge g">Free</span></td><td>Paid plan</td></tr>
+<tr><td>Competitor comparison</td><td><span class="badge g">Free</span></td><td>Paid plan</td></tr>
+<tr><td>Open source, no account, no tracking</td><td><span class="badge g">Yes</span></td><td>No</td></tr>
+</table></div>
+<p class="note">Estimates are heuristic models, not official figures. YouTube does not publicly expose monetization status or revenue — TubeScope is transparent about what is measured vs estimated. Not affiliated with YouTube, Google, or vidIQ.</p>
+</div>
+</div>
+</main>
+
+<footer><div class="wrap">
+<span>TubeScope — free &amp; open source. Data: YouTube Data API v3. Estimates: heuristic.</span>
+<span><a href="https://github.com/0050piyush/tubescope" style="text-decoration:underline">GitHub</a></span>
+</div></footer>
+<script src="assets/app.js"></script>
+<script src="assets/home.js"></script>
+</body>
+</html>

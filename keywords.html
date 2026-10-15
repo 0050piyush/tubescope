@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Keyword Research — TubeScope</title>
+<meta name="description" content="Free YouTube keyword research: autocomplete ideas, competition data and opportunity scores.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff3b30'/%3E%3Cpath d='M26 20l18 12-18 12z' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<header class="top"><div class="top-in">
+<a class="brand" href="index.html"><span class="logo">TS</span>TubeScope</a>
+<nav class="main">
+<a data-p="video" href="video.html">Video</a><a data-p="channel" href="channel.html">Channel</a><a data-p="keywords" href="keywords.html">Keywords</a><a data-p="trending" href="trending.html">Trending</a><a data-p="compare" href="compare.html">Compare</a><a data-p="settings" href="settings.html">Settings</a>
+</nav>
+<div class="quota" id="quota"></div>
+</div></header>
+<main><div class="wrap">
+<div class="sec">
+<h2>Keyword Research</h2>
+<p class="sub">Type a seed topic → get real YouTube autocomplete ideas, then score each one with competition data.</p>
+<form class="searchbar" id="f" style="margin:0;max-width:720px">
+<input id="q" placeholder="Seed keyword, e.g. meal prep…" autocomplete="off" spellcheck="false">
+<button class="btn" type="submit">Ideas</button>
+</form>
+<div id="gate"></div>
+<div id="out" class="mt"></div>
+</div>
+</div></main>
+<footer><div class="wrap"><span>TubeScope — free &amp; open source. Estimates are heuristic.</span><span><a href="https://github.com/0050piyush/tubescope" style="text-decoration:underline">GitHub</a></span></div></footer>
+<script src="assets/app.js"></script>
+<script src="assets/keywords.js"></script>
+</body>
+</html>
