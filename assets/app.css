@@ -123,7 +123,16 @@ select.in option{background:#111}
 .gate p{color:var(--mut);font-size:13.5px}
 /* misc */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:760px){.grid2{grid-template-columns:1fr}.barrow{grid-template-columns:110px 1fr 60px}nav.main{display:none}}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}.barrow{grid-template-columns:110px 1fr 60px}.top-in{gap:12px;flex-wrap:wrap}nav.main{flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding-bottom:4px}nav.main a{white-space:nowrap;padding:6px 10px;font-size:13px}.quota{display:none}}
+/* ideas */
+.ideacard{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:10px 0;align-items:flex-start}
+.ideacard .in{width:30px;height:30px;flex:none;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.ideacard .it{font-weight:750;font-size:15px}
+.ideacard .ih{font-size:13px;color:var(--mut);margin-top:5px}
+.ideacard .iw{font-size:12.5px;color:var(--dim);margin-top:4px}
+.ideacard .ia{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+/* tracker */
+.spark{width:100px;height:32px}
 .muted{color:var(--mut)}.dim{color:var(--dim)}.small{font-size:13px}
 .mt{margin-top:14px}.mb{margin-bottom:14px}
 .loading{display:flex;align-items:center;gap:12px;padding:30px 0;color:var(--mut)}

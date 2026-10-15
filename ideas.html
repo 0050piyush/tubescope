@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Daily Ideas — TubeScope</title>
+<meta name="description" content="Free AI video ideas personalized to your channel's niche and top performers.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff3b30'/%3E%3Cpath d='M26 20l18 12-18 12z' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<header class="top"><div class="top-in">
+<a class="brand" href="index.html"><span class="logo">TS</span>TubeScope</a>
+<nav class="main">
+<a data-p="video" href="video.html">Video</a><a data-p="channel" href="channel.html">Channel</a><a data-p="ideas" href="ideas.html">Ideas</a><a data-p="keywords" href="keywords.html">Keywords</a><a data-p="trends" href="trends.html">Trends</a><a data-p="tracker" href="tracker.html">Tracker</a><a data-p="mychannel" href="mychannel.html">My Channel</a><a data-p="trending" href="trending.html">Trending</a><a data-p="compare" href="compare.html">Compare</a><a data-p="settings" href="settings.html">Settings</a>
+</nav>
+<div class="quota" id="quota"></div>
+</div></header>
+<main><div class="wrap">
+<div class="sec">
+<h2>AI Daily Ideas</h2>
+<p class="sub">Personalized video ideas generated from your channel's actual top performers — or any niche. Free, no sign-up.</p>
+<form id="f">
+<div class="grid2">
+<div class="field"><label>Your channel (optional — for personalized ideas)</label><input class="in full" id="q" placeholder="@handle or channel URL"></div>
+<div class="field"><label>Niche / topic</label><input class="in full" id="niche" placeholder="e.g. budget travel, sourdough baking"></div>
+</div>
+<div class="inrow">
+<button class="btn" type="submit">Generate 10 ideas</button>
+<button class="btn ghost" type="button" id="again">Regenerate</button>
+</div>
+</form>
+<div id="gate"></div>
+<div id="out" class="mt"></div>
+<div class="card mt"><h3>How the AI works</h3>
+<p class="small muted">Default engine is a free, no-key AI API. For better quality, add your own key in <a href="settings.html" style="text-decoration:underline">Settings</a> (OpenAI-compatible endpoint, or a free Gemini API key). Ideas refresh daily and are cached per channel/niche.</p></div>
+</div>
+</div></main>
+<footer><div class="wrap"><span>TubeScope — free &amp; open source. Estimates are heuristic.</span><span><a href="https://github.com/0050piyush/tubescope" style="text-decoration:underline">GitHub</a></span></div></footer>
+<script src="assets/app.js"></script>
+<script src="assets/ideas.js"></script>
+</body>
+</html>

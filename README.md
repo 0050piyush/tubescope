@@ -10,10 +10,15 @@ YouTube analytics, SEO and earnings intelligence that runs 100% in the browser. 
 |---|---|---|
 | Video Scorecard | `video.html` | SEO score (0–100) with fix checklist, engagement health, tags, hashtags, estimated lifetime ad revenue |
 | Channel Audit | `channel.html` | Monetization likelihood verdict, estimated monthly + lifetime earnings, health score, upload consistency, top videos, top tags, content ideas |
+| AI Daily Ideas | `ideas.html` | Personalized video ideas from your channel's top performers via free AI (or your own OpenAI-compatible key) |
 | Keyword Research | `keywords.html` | Real YouTube autocomplete ideas, competition data per keyword, heuristic opportunity score |
+| Trend Radar | `trends.html` | Niche velocity scan: rising videos + breakout phrases before they peak |
+| Competitor Tracker | `tracker.html` | Watchlist with snapshot history, subs/views velocity, surging alerts, new-upload detection |
+| My Channel | `mychannel.html` | Private analytics via Google OAuth (read-only): 28-day views, watch time, traffic sources, top videos |
 | Trending Explorer | `trending.html` | Most-popular videos by country + category |
 | Competitor Compare | `compare.html` | Two channels head-to-head with a verdict |
-| Settings | `settings.html` | Free API key setup, key test, daily quota meter |
+| Settings | `settings.html` | Free API key setup, key test, daily quota meter, custom AI endpoint |
+| Browser extension | `extension/` | Chrome/Edge MV3 extension: one-click TubeScope analysis on any YouTube page (load unpacked) |
 
 ## How it works
 
@@ -23,7 +28,7 @@ YouTube analytics, SEO and earnings intelligence that runs 100% in the browser. 
   - `monetizationVerdict()` — scores public YPP criteria (1,000-sub threshold, activity, kids-status, channel type). YouTube hides real monetization status, so this is always labeled an estimate.
   - `revenueRange()` — niche CPM table × country purchasing-power multiplier × 55% monetized-playback share
   - `channelHealthScore()`, `analyzeUploads()` — consistency, engagement, metadata completeness
-- **Quota costs:** video ~1 unit · channel audit ~4 · trending ~2 · compare ~8 · keyword scoring ~100/keyword · captions check 50. A quota meter in the header tracks daily usage.
+- **Quota:** tracked live in the header; see Setup below for per-tool costs.
 
 ## Setup (2 minutes)
 
@@ -31,6 +36,23 @@ YouTube analytics, SEO and earnings intelligence that runs 100% in the browser. 
 2. APIs & Services → Library → enable **YouTube Data API v3**
 3. Credentials → Create Credentials → API key
 4. Paste the key in TubeScope → Settings → Save. Done.
+
+### My Channel Analytics (private stats, optional)
+
+Same Cloud project, a few extra steps:
+
+1. Enable the **YouTube Analytics API** in the API Library
+2. OAuth consent screen → External → add scopes `youtube.readonly` + `yt-analytics.readonly` → add your Google account as a **test user**
+3. Credentials → Create Credentials → OAuth client ID → Web application → Authorized JavaScript origins: `https://0050piyush.github.io`
+4. Paste the client ID on the My Channel page → Connect with Google (read-only)
+
+### Browser extension (optional)
+
+`chrome://extensions` → Developer mode → Load unpacked → select the `extension/` folder. A TubeScope button then appears on every YouTube video/channel page.
+
+## Quota costs
+
+Video ~1 · channel audit ~4 · trending ~2 · compare ~8 · keyword scoring ~100/keyword · trend scan ~101 · tracker refresh ~2/channel. The free tier gives 10,000 units/day.
 
 ## Run locally
 

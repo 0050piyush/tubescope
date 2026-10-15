@@ -33,3 +33,22 @@ document.getElementById('test').addEventListener('click', async () => {
   }
 });
 paint();
+
+/* custom LLM for Daily Ideas */
+const llmEp = document.getElementById('llm_ep'), llmKey = document.getElementById('llm_key'), llmModel = document.getElementById('llm_model');
+llmEp.value = localStorage.getItem('tubescope_llm_ep') || '';
+llmKey.value = localStorage.getItem('tubescope_llm_key') || '';
+llmModel.value = localStorage.getItem('tubescope_llm_model') || '';
+function paintLlm() {
+  const on = (localStorage.getItem('tubescope_llm_ep') || '').trim() && (localStorage.getItem('tubescope_llm_key') || '').trim();
+  document.getElementById('llmStatus').innerHTML = on
+    ? '<span class="badge g">Custom AI active</span>'
+    : '<span class="badge n">Using free built-in AI</span>';
+}
+document.getElementById('llm_save').addEventListener('click', () => {
+  localStorage.setItem('tubescope_llm_ep', llmEp.value.trim());
+  localStorage.setItem('tubescope_llm_key', llmKey.value.trim());
+  localStorage.setItem('tubescope_llm_model', llmModel.value.trim());
+  paintLlm(); TS.toast('AI settings saved.');
+});
+paintLlm();

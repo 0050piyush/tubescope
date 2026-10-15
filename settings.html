@@ -12,7 +12,7 @@
 <header class="top"><div class="top-in">
 <a class="brand" href="index.html"><span class="logo">TS</span>TubeScope</a>
 <nav class="main">
-<a data-p="video" href="video.html">Video</a><a data-p="channel" href="channel.html">Channel</a><a data-p="keywords" href="keywords.html">Keywords</a><a data-p="trending" href="trending.html">Trending</a><a data-p="compare" href="compare.html">Compare</a><a data-p="settings" href="settings.html">Settings</a>
+<a data-p="video" href="video.html">Video</a><a data-p="channel" href="channel.html">Channel</a><a data-p="ideas" href="ideas.html">Ideas</a><a data-p="keywords" href="keywords.html">Keywords</a><a data-p="trends" href="trends.html">Trends</a><a data-p="tracker" href="tracker.html">Tracker</a><a data-p="mychannel" href="mychannel.html">My Channel</a><a data-p="trending" href="trending.html">Trending</a><a data-p="compare" href="compare.html">Compare</a><a data-p="settings" href="settings.html">Settings</a>
 </nav>
 <div class="quota" id="quota"></div>
 </div></header>
@@ -33,6 +33,18 @@
 </div>
 <div class="small mt" id="keyStatus"></div>
 <div class="small dim mt">Today's usage: <b id="qUse" class="muted"></b> units of the free 10,000/day quota.</div>
+</div>
+
+<div class="card mb">
+<h3>AI for Daily Ideas (optional)</h3>
+<p class="small muted">Daily Ideas works out of the box with a free, no-key AI. For better quality, point it at your own OpenAI-compatible endpoint — e.g. a free <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" style="text-decoration:underline">Gemini API key</a> with endpoint <code class="inline">https://generativelanguage.googleapis.com/v1beta/openai</code>.</p>
+<div class="field"><label>API endpoint (OpenAI-compatible)</label><input class="in full" id="llm_ep" placeholder="https://…/v1  (leave empty for free built-in AI)" autocomplete="off" spellcheck="false"></div>
+<div class="grid2">
+<div class="field"><label>API key</label><input class="in full" id="llm_key" type="password" placeholder="optional" autocomplete="off"></div>
+<div class="field"><label>Model</label><input class="in full" id="llm_model" placeholder="e.g. gemini-2.0-flash" autocomplete="off" spellcheck="false"></div>
+</div>
+<button class="btn sm" id="llm_save">Save AI settings</button>
+<div class="small mt" id="llmStatus"></div>
 </div>
 
 <div class="card">

@@ -1,0 +1,1 @@
+{"content_scripts":[{"js":["content.js"],"matches":["https://www.youtube.com/*"],"run_at":"document_idle"}],"description":"One-click TubeScope analysis on any YouTube video or channel page. Free, open source.","homepage_url":"https://0050piyush.github.io/tubescope/","manifest_version":3,"name":"TubeScope for YouTube","version":"1.0.0"}
